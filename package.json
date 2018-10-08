@@ -1,0 +1,23 @@
+{
+  "name": "scoreboard",
+  "version": "1.0.0",
+  "description": "cool sweet react app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barhoring/scoreboard.git"
+  },
+  "author": "Bar Horing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barhoring/scoreboard/issues"
+  },
+  "homepage": "https://github.com/barhoring/scoreboard#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
