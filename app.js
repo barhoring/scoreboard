@@ -22,7 +22,6 @@ const players = [
 ];
 
 const Header = props => {
-  console.log(props);
   return (
     <header>
       <h1>{props.title}</h1>
@@ -35,18 +34,40 @@ const Player = props => {
   return (
     <div className="player">
       <span className="player-name">{props.name}</span>
-      <Counter score={props.score} />
+      <Counter />
     </div>
   );
 };
 
 class Counter extends React.Component {
+
+  // test
+  state = {
+    score: 0
+  };
+  
+  // // handle pattern
+  // incrementScore() {
+  //   console.log('hi from ');
+  //   console.log(this.state)
+  //   this.setState(
+  //     state => ({score: state.score +1}),
+  //     () => {console.log('bar')}
+  //   );
+
+  //   // this.setState({score: 11});
+  // }
+
+  incrementScore = () => {
+    this.setState({score: this.state.score + 1});
+  };
+
   render() {
     return (
       <div className="counter">
         <button className="counter-action decrement"> - </button>
-        <span className="counter-score">{this.props.score}</span>
-        <button className="counter-action increment"> + </button>
+        <span className="counter-score">{this.state.score}</span>
+        <button className="counter-action increment" onClick={this.incrementScore}> + </button>
       </div>
     );
   }
