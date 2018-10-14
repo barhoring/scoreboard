@@ -104,17 +104,26 @@ class App extends React.Component {
     ]
   };
 
+  // handleRemovePlayer = () => {
+  //   setState({
+  //     players: players.filter(p => p.)
+  //   });  
+  // };
+
   render() {
     return (
       <div className="scoreboard">
         <Header title="Scoreboard" totalPlayers={this.state.players.length} />
         {/* Player's list */}
         {this.state.players.map(player => (
-          <Player
-            name={player.name}
-            score={player.score}
-            key={player.id.toString()}
-          />
+          <div>
+            <button type="submit" onClick={() => console.log(this) } key={player.id.toString()}> x  </button>
+            <Player
+              name={player.name}
+              score={player.score}
+              key={player.id.toString()}
+            />
+          </div>
         ))}
       </div>
     );
