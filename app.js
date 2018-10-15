@@ -1,26 +1,3 @@
-// const players = [
-//   {
-//     name: "Guil",
-//     score: 50,
-//     id: 1
-//   },
-//   {
-//     name: "Treasure",
-//     score: 85,
-//     id: 2
-//   },
-//   {
-//     name: "Ashley",
-//     score: 95,
-//     id: 3
-//   },
-//   {
-//     name: "James",
-//     score: 80,
-//     id: 4
-//   }
-// ];
-
 const Header = props => {
   return (
     <header>
@@ -30,10 +7,13 @@ const Header = props => {
   );
 };
 
-const Player = props => {
+const Player = ({id, name, handleRemove}) => {
   return (
     <div className="player">
-      <span className="player-name">{props.name}</span>
+      <span className="player-name">
+        <button className="remove-player" type="submit" onClick={() => handleRemove(id)}>✖</button>
+        {name}
+      </span>
       <Counter />
     </div>
   );
@@ -41,23 +21,10 @@ const Player = props => {
 
 class Counter extends React.Component {
 
-  // test
   state = {
     score: 0
   };
   
-  // // handle pattern
-  // incrementScore() {
-  //   console.log('hi from ');
-  //   console.log(this.state)
-  //   this.setState(
-  //     state => ({score: state.score +1}),
-  //     () => {console.log('bar')}
-  //   );
-
-  //   // this.setState({score: 11});
-  // }
-
   incrementScore = () => {
     this.setState(prevState => ({
         score: prevState.score + 1
@@ -104,11 +71,14 @@ class App extends React.Component {
     ]
   };
 
-  // handleRemovePlayer = () => {
-  //   setState({
-  //     players: players.filter(p => p.)
-  //   });  
-  // };
+  handleRemove = (id) => {
+    console.log('removing id: ', id);
+    this.setState(prevState => 
+      ({
+        players: prevState.players.filter(p => p.id !== id)
+      })
+    );
+  };
 
   render() {
     return (
@@ -117,11 +87,11 @@ class App extends React.Component {
         {/* Player's list */}
         {this.state.players.map(player => (
           <div>
-            <button type="submit" onClick={() => console.log(this) } key={player.id.toString()}> x  </button>
             <Player
               name={player.name}
-              score={player.score}
               key={player.id.toString()}
+              id={player.id}
+              handleRemove={this.handleRemove}
             />
           </div>
         ))}
