@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/barhoring/scoreboard/issues"
   },
-  "homepage": "https://github.com/barhoring/scoreboard#readme",
+  "homepage": "https://github.com/barhoring/scoreboard",
   "devDependencies": {
     "http-server": "^0.11.1"
   }
